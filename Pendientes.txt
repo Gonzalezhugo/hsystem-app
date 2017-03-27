@@ -1,0 +1,14 @@
+// Proyecto hsystem-app de java
+Clases
+	- Articulo
+		- getExistencia()
+		- estaAgotado()
+		- sumarExistencia(int n)
+		- restarExistencia(int n)
+		- hashCode()
+		- equals(Object obj)
+	- Repositorio
+		- ListaPaginada buscar(String filtros, int indiceInicial, int cantidadElementos)
+	- VistaPrincipal
+		- visualizar()
+		
