@@ -5,6 +5,8 @@
  */
 package org.owl.hsystem.modelos;
 
+import java.util.Objects;
+
 /**
  *
  * @author huguito
@@ -15,7 +17,7 @@ public class Articulo implements Identificable{
     private Double precio;
     private Double porcentajeImpuesto;
     private Long id;
-    private int existencia;
+    private int vexistencia;
     
     /*
         getter ans setter
@@ -31,7 +33,7 @@ public class Articulo implements Identificable{
         return descripcion;
     }
     public void setDescripcion(String descripcion){
-        this.descripcion = this.descripcion;
+        this.descripcion = descripcion;
     }
     
     public Double getPrecio(){
@@ -49,9 +51,25 @@ public class Articulo implements Identificable{
     }
     
     public int getExistencia(){
-        return existencia;
+        return vexistencia;
     }
-
+    
+    public boolean estaAgotado() {
+        if (vexistencia == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void sumarExistencia(int n){
+        vexistencia = vexistencia + n;
+    }
+    
+    public void restarExistencia(int n){
+        vexistencia = vexistencia - n;
+    }
+    
     @Override
     public Long getId() {
         return id;
@@ -60,6 +78,31 @@ public class Articulo implements Identificable{
     @Override
     public void setId(Long id) {
         this.id = id;
+    }
+    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Articulo other = (Articulo) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
     }
     
     @Override
