@@ -39,8 +39,13 @@ public class ControladorVistaAdministrarArticulos implements Controlador{
             case VOLVER:
                 controlador = new ControladorVistaPrincipal();
                 vista = new VistaPrincipal((ControladorVistaPrincipal)controlador);
+            default:
+                  System.out.println("Opcion elegida aun no ha sido implementada");
         }
-        vista.visualizar();
+        if (vista != null){
+            vista.visualizar();
+        }
+        
     }
     
     public String[] obtenerNombresAcciones(){

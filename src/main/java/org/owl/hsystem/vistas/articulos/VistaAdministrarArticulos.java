@@ -20,7 +20,7 @@ public class VistaAdministrarArticulos implements Visualizable{
 
     public VistaAdministrarArticulos(ControladorVistaAdministrarArticulos controlador){
         this.controlador = controlador;
-    }
+    }   
         
     @Override
     public void visualizar() {
