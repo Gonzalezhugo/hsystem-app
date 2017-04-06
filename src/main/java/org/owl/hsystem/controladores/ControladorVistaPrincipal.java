@@ -5,8 +5,10 @@
  */
 package org.owl.hsystem.controladores;
 
+import org.owl.hsystem.vistas.VistaPrincipal;
 import org.owl.hsystem.vistas.Visualizable;
 import org.owl.hsystem.vistas.articulos.VistaAdministrarArticulos;
+import org.owl.hsystem.vistas.clientes.VistaAdministrarClientes;
 
 /**
  *
@@ -42,9 +44,13 @@ public class ControladorVistaPrincipal implements Controlador{
             case ADMINISTRAR_ARTICULOS:
                 vista = new VistaAdministrarArticulos(new ControladorVistaAdministrarArticulos());
                 break;
+            case ADMINISTRAR_CLIENTES:
+                vista = new VistaAdministrarClientes(new ControladorVistaAdministrarClientes());
+                break;
             case SALIR:
                 System.out.print("Hasta Luego");
                 System.exit(0);
+                break;
                 /*
                 vista = new Visualizable() {
                                 @Override
@@ -54,6 +60,10 @@ public class ControladorVistaPrincipal implements Controlador{
                             };
                 break;
                 */
+            default:
+                System.out.print("Esta opcion aun no esta Disponible. Elija otra opcion");
+                vista = new VistaPrincipal(this);
+                break;
         }
         if (vista != null){
             vista.visualizar();
