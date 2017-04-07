@@ -7,6 +7,7 @@ package org.owl.hsystem.controladores;
 
 import org.owl.hsystem.vistas.VistaPrincipal;
 import org.owl.hsystem.vistas.Visualizable;
+import org.owl.hsystem.vistas.articulos.VistaAdministrarArticulos;
 
 /**
  *
@@ -33,14 +34,15 @@ public class ControladorVistaAdministrarArticulos implements Controlador{
     @Override
     public void procesarAccion(int indiceAccion) {
         Accion accion = Accion.values()[indiceAccion];
-        Controlador controlador = null;
         Visualizable vista = null;
         switch(accion){
             case VOLVER:
-                controlador = new ControladorVistaPrincipal();
-                vista = new VistaPrincipal((ControladorVistaPrincipal)controlador);
+                vista = new VistaPrincipal(new ControladorVistaPrincipal());
+                break;
             default:
                   System.out.println("Opcion elegida aun no ha sido implementada");
+                  vista = new VistaAdministrarArticulos(this);
+                  break;
         }
         if (vista != null){
             vista.visualizar();
