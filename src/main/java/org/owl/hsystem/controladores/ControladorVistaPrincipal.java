@@ -5,6 +5,7 @@
  */
 package org.owl.hsystem.controladores;
 
+import org.owl.hsystem.vistas.Proveedores.VistaAdministrarProveedores;
 import org.owl.hsystem.vistas.VistaPrincipal;
 import org.owl.hsystem.vistas.Visualizable;
 import org.owl.hsystem.vistas.articulos.VistaAdministrarArticulos;
@@ -46,6 +47,9 @@ public class ControladorVistaPrincipal implements Controlador{
                 break;
             case ADMINISTRAR_CLIENTES:
                 vista = new VistaAdministrarClientes(new ControladorVistaAdministrarClientes());
+                break;
+            case ADMINISTRAR_PROVEEDORES:
+                vista = new VistaAdministrarProveedores(new ControladorVistaAdministrarProveedores());
                 break;
             case SALIR:
                 System.out.print("Hasta Luego");
